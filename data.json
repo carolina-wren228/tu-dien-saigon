@@ -12,53 +12,39 @@
   {
     "word": "A",
     "search_term": "a",
-    "part_of_speech": "Động từ (đt.)",
-    "definition": "Xông, sấn vào",
+    "part_of_speech": "Động từ (đt.) [p. foncer sur]",
+    "definition": "Xông, sấn vào.",
     "examples": [
-      { "phrase": "Bọn chúng a vào cướp giật." }
+      { "phrase": "Bọn chúng a vào cướp giật", "meaning": "" }
     ]
   },
   {
     "word": "A",
     "search_term": "a",
-    "part_of_speech": "Động từ (đt.)",
-    "definition": "Vơ, gom thành đống",
+    "part_of_speech": "Động từ (đt.) [p. réunir en tas, amasser]",
+    "definition": "Vơ, gom thành đống.",
     "examples": [
-      { "phrase": "A rơm, a cỏ vào sân." }
+      { "phrase": "A rơm, a cỏ vào sân", "meaning": "" }
     ]
   },
   {
     "word": "A",
     "search_term": "a",
-    "part_of_speech": "Danh từ (dt.)",
-    "definition": "Nông cụ dùng cắt rơm, rạ",
+    "part_of_speech": "Danh từ (dt.) [p. fourche]",
+    "definition": "Nông cụ dùng cắt rơm, rạ.",
     "examples": [
-      { "phrase": "Cắt rạ dùng a, quét nhà dùng chổi (T. ngữ)." }
+      { "phrase": "Cắt rạ dùng a, quét nhà dùng chổi (T. ngữ)", "meaning": "" }
     ]
   },
   {
     "word": "A",
     "search_term": "a",
     "part_of_speech": "Thán từ (tht.)",
-    "definition": "Tỏ ý vui thích. Tỏ ý ngạc nhiên",
+    "definition": "Tỏ ý vui thích, tỏ ý ngạc nhiên",
     "examples": [
-      { "phrase": "Đẹp quá a !" },
-      { "phrase": "A, a, a, thiên địa đắm hoang mang (H. m. Từ)." },
-      { "phrase": "Da mỗi tóc bạc ta già nhỉ, Áo biếc đai vàng bác đây a ! (Yên Đỗ)." }
+      { "phrase": "1. Đẹp quá a !", "meaning": "Tỏ ý vui thích." },
+      { "phrase": "2. A, a, a, thiên địa đắm hoang mang (H. m. Từ).", "meaning": "Tỏ ý ngạc nhiên." },
+      { "phrase": "3. Da mỗi tóc bạc ta già nhỉ, Áo biếc đai vàng bác đây a ! (Yên Đỗ).", "meaning": "Tỏ ý ngạc nhiên." }
     ]
-  },
-  {
-    "word": "A-bản",
-    "search_term": "a ban",
-    "part_of_speech": "Danh từ (dt.)",
-    "definition": "Tên một loại đàn cổ xưa.",
-    "examples": []
-  },
-  {
-    "word": "Á-căn-đình",
-    "search_term": "a can dinh",
-    "part_of_speech": "Danh từ (dt.)",
-    "definition": "Nước Argentina ở Nam-Mỹ.",
-    "examples": []
   }
 ]
