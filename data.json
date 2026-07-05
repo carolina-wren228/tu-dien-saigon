@@ -10,6 +10,44 @@
     ]
   },
   {
+    "word": "A",
+    "search_term": "a",
+    "part_of_speech": "Động từ (đt.)",
+    "definition": "Xông, sấn vào",
+    "examples": [
+      { "phrase": "Bọn chúng a vào cướp giật." }
+    ]
+  },
+  {
+    "word": "A",
+    "search_term": "a",
+    "part_of_speech": "Động từ (đt.)",
+    "definition": "Vơ, gom thành đống",
+    "examples": [
+      { "phrase": "A rơm, a cỏ vào sân." }
+    ]
+  },
+  {
+    "word": "A",
+    "search_term": "a",
+    "part_of_speech": "Danh từ (dt.)",
+    "definition": "Nông cụ dùng cắt rơm, rạ",
+    "examples": [
+      { "phrase": "Cắt rạ dùng a, quét nhà dùng chổi (T. ngữ)." }
+    ]
+  },
+  {
+    "word": "A",
+    "search_term": "a",
+    "part_of_speech": "Thán từ (tht.)",
+    "definition": "Tỏ ý vui thích. Tỏ ý ngạc nhiên",
+    "examples": [
+      { "phrase": "Đẹp quá a !" },
+      { "phrase": "A, a, a, thiên địa đắm hoang mang (H. m. Từ)." },
+      { "phrase": "Da mỗi tóc bạc ta già nhỉ, Áo biếc đai vàng bác đây a ! (Yên Đỗ)." }
+    ]
+  },
+  {
     "word": "A-bản",
     "search_term": "a ban",
     "part_of_speech": "Danh từ (dt.)",
