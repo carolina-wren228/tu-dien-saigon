@@ -1,0 +1,26 @@
+[
+  {
+    "word": "A",
+    "search_term": "a",
+    "part_of_speech": "Danh từ (dt.)",
+    "definition": "Chữ thứ nhất trong tự mẫu Việt ngữ.",
+    "examples": [
+      { "phrase": "A hoa", "meaning": "Chữ A viết hoa." },
+      { "phrase": "A thường (a minuscule)", "meaning": "Chữ a không viết hoa." }
+    ]
+  },
+  {
+    "word": "A-bản",
+    "search_term": "a ban",
+    "part_of_speech": "Danh từ (dt.)",
+    "definition": "Tên một loại đàn cổ xưa.",
+    "examples": []
+  },
+  {
+    "word": "Á-căn-đình",
+    "search_term": "a can dinh",
+    "part_of_speech": "Danh từ (dt.)",
+    "definition": "Nước Argentina ở Nam-Mỹ.",
+    "examples": []
+  }
+]
