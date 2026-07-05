@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Việt-Nam Tân Tự-Điển Online</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 600px; margin: 40px auto; padding: 20px; line-height: 1.6; background-color: #fcfbf7; color: #222; }
+        .header-container { text-align: center; border-bottom: 2px dashed #d1c7bd; padding-bottom: 20px; margin-bottom: 25px; }
+        .main-title { font-size: 32px; margin: 0 0 5px 0; color: #5c1d1d; font-family: "Times New Roman", Georgia, serif; font-weight: bold; }
+        .subtitle { font-size: 18px; margin: 0 0 15px 0; color: #444; font-style: italic; }
+        .meta-badge { font-size: 13px; color: #665c54; background-color: #f2ede4; padding: 6px 12px; border-radius: 4px; display: inline-block; border: 1px solid #e3dac9; }
+        .search-box { width: 100%; padding: 12px; font-size: 18px; border: 2px solid #c9bda7; border-radius: 6px; box-sizing: border-box; background-color: #fff; }
+        .result-card { margin-top: 20px; padding: 20px; background: white; border-radius: 6px; box-shadow: 0 2px 8px rgba(184,170,147,0.2); border: 1px solid #e8e2d5; display: none; }
+        .word-title { font-size: 28px; margin: 0; color: #1a1a1a; font-weight: bold; }
+        .pos { display: inline-block; background: #fef3c7; color: #92400e; padding: 2px 8px; border-radius: 4px; font-size: 14px; font-weight: bold; margin: 8px 0; border: 1px solid #fde68a; }
+        .definition { font-size: 16px; color: #333; margin-bottom: 15px; }
+        .example-item { border-left: 3px solid #b45309; padding-left: 10px; margin-bottom: 8px; font-style: italic; color: #555; }
+        .no-result { margin-top: 20px; color: #777; display: none; text-align: center; }
+        .loading { color: #7c2d12; font-style: italic; margin-bottom: 10px; text-align: center; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <div class="header-container">
+        <h1 class="main-title">VIỆT-NAM TÂN TỰ-ĐIỂN</h1>
+        <p class="subtitle">Tác giả: Thanh Nghị</p>
+        <div class="meta-badge">
+            🏠 <strong>Nhà xuất bản:</strong> Khải-Trí &nbsp;|&nbsp; 📅 <strong>Ngày ấn hành:</strong> 27/12/1967
+        </div>
+    </div>
+
+    <div id="status" class="loading">Đang mở kho sách dữ liệu...</div>
+    <input type="text" id="searchInput" class="search-box" placeholder="Đang chuẩn bị..." oninput="searchDictionary()" disabled>
+
+    <div id="resultCard" class="result-card">
+        <h1 id="resWord" class="word-title"></h1>
+        <span id="resPos" class="pos"></span>
+        <div id="resDef" class="definition"></div>
+        <div id="resExamples"></div>
+    </div>
+
+    <div id="noResult" class="no-result">Không tìm thấy từ này trong dữ liệu tự-điển hiện tại.</div>
+
+    <script>
+        let dictionaryData = [];
+
+        async function loadDictionaryData() {
+            try {
+                const response = await fetch('data.json');
+                if (!response.ok) {
+                    throw new Error('Không thể đọc file data.json');
+                }
+                dictionaryData = await response.json();
+                
+                document.getElementById('status').style.display = 'none';
+                document.getElementById('searchInput').disabled = false;
+                document.getElementById('searchInput').placeholder = "Tra cứu từ ngữ (ví dụ: a)...";
+            } catch (error) {
+                document.getElementById('status').innerText = "Lỗi: Không thể kết nối thư viện từ điển. Kiểm tra file data.json.";
+                console.error(error);
+            }
+        }
+
+        loadDictionaryData();
+
+        function searchDictionary() {
+            const query = document.getElementById('searchInput').value.trim().toLowerCase();
+            const card = document.getElementById('resultCard');
+            const noResult = document.getElementById('noResult');
+            
+            if (query === "") {
+                card.style.display = "none";
+                noResult.style.display = "none";
+                return;
+            }
+
+            const entry = dictionaryData.find(item => item.search_term === query || item.word.toLowerCase() === query);
+
+            if (entry) {
+                document.getElementById('resWord').innerText = entry.word;
+                document.getElementById('resPos').innerText = entry.part_of_speech;
+                document.getElementById('resDef').innerText = entry.definition;
+                
+                const exampleDiv = document.getElementById('resExamples');
+                exampleDiv.innerHTML = "";
+                
+                if (entry.examples && entry.examples.length > 0) {
+                    exampleDiv.innerHTML = "<strong>Ví dụ sử dụng:</strong>";
+                    entry.examples.forEach(ex => {
+                        const p = document.createElement('div');
+                        p.className = 'example-item';
+                        p.innerHTML = `<strong>${ex.phrase}</strong> : ${ex.meaning}`;
+                        exampleDiv.appendChild(p);
+                    });
+                }
+
+                card.style.display = "block";
+                noResult.style.display = "none";
+            } else {
+                card.style.display = "none";
+                noResult.style.display = "block";
+            }
+        }
+    </script>
+</body>
+</html>
