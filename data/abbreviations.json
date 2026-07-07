@@ -1,7 +1,202 @@
 [
-  { "abbr": "dt.", "meaning": "Danh từ" },
-  { "abbr": "đt.", "meaning": "Động từ" },
-  { "abbr": "tht.", "meaning": "Thán từ" },
-  { "abbr": "p.", "meaning": "Pháp văn (tiếng Pháp)" },
-  { "abbr": "T. ngữ", "meaning": "Tục ngữ" }
+    {
+        "abbr": "A.",
+        "meaning": "Anh ngữ"
+    },
+    {
+        "abbr": "Âm.",
+        "meaning": "Âm nhạc"
+    },
+    {
+        "abbr": "Bt.",
+        "meaning": "Biến từ"
+    },
+    {
+        "abbr": "Cơ.",
+        "meaning": "Cơ học"
+    },
+    {
+        "abbr": "Chđt.",
+        "meaning": "Chỉ định từ"
+    },
+    {
+        "abbr": "Chính.",
+        "meaning": "Chính trị"
+    },
+    {
+        "abbr": "Dt.",
+        "meaning": "Danh từ"
+    },
+    {
+        "abbr": "Đ.",
+        "meaning": "Đức ngữ"
+    },
+    {
+        "abbr": "Đdt.",
+        "meaning": "Đại danh từ"
+    },
+    {
+        "abbr": "Đt.",
+        "meaning": "Động từ"
+    },
+    {
+        "abbr": "Địa.",
+        "meaning": "Địa chất học"
+    },
+    {
+        "abbr": "Điện.",
+        "meaning": "Điện học"
+    },
+    {
+        "abbr": "Động.",
+        "meaning": "Động vật học"
+    },
+    {
+        "abbr": "Fig.",
+        "meaning": "Figuré"
+    },
+    {
+        "abbr": "Gt.",
+        "meaning": "Giới từ"
+    },
+    {
+        "abbr": "Giải.",
+        "meaning": "Giải phẫu"
+    },
+    {
+        "abbr": "H, ht.",
+        "meaning": "Hán tự"
+    },
+    {
+        "abbr": "Hóa.",
+        "meaning": "Hóa học"
+    },
+    {
+        "abbr": "Itd.",
+        "meaning": "Ít dùng"
+    },
+    {
+        "abbr": "Khd.",
+        "meaning": "Không dùng một mình"
+    },
+    {
+        "abbr": "Kinh.",
+        "meaning": "Kinh tế"
+    },
+    {
+        "abbr": "Khoáng.",
+        "meaning": "Khoáng vật học"
+    },
+    {
+        "abbr": "Lt.",
+        "meaning": "Liên từ"
+    },
+    {
+        "abbr": "Lý.",
+        "meaning": "Vật lý học"
+    },
+    {
+        "abbr": "Lóng.",
+        "meaning": "Tiếng lóng"
+    },
+    {
+        "abbr": "Ngr.",
+        "meaning": "Nghĩa rộng"
+    },
+    {
+        "abbr": "Ngb.",
+        "meaning": "Nghĩa bóng"
+    },
+    {
+        "abbr": "Nht.",
+        "meaning": "Như tiếng"
+    },
+    {
+        "abbr": "Onomat.",
+        "meaning": "Onomatopée"
+    },
+    {
+        "abbr": "P.",
+        "meaning": "Pháp ngữ"
+    },
+    {
+        "abbr": "Pht.",
+        "meaning": "Phó từ"
+    },
+    {
+        "abbr": "Phạn.",
+        "meaning": "Phạn ngữ"
+    },
+    {
+        "abbr": "Pháp.",
+        "meaning": "Pháp luật"
+    },
+    {
+        "abbr": "Phật.",
+        "meaning": "Phật giáo"
+    },
+    {
+        "abbr": "St.",
+        "meaning": "Số từ"
+    },
+    {
+        "abbr": "Sinh.",
+        "meaning": "Sinh vật học"
+    },
+    {
+        "abbr": "Tt.",
+        "meaning": "Tĩnh từ"
+    },
+    {
+        "abbr": "Tht.",
+        "meaning": "Thán từ"
+    },
+    {
+        "abbr": "Trt.",
+        "meaning": "Trạng từ"
+    },
+    {
+        "abbr": "T. ngữ.",
+        "meaning": "Tục ngữ"
+    },
+    {
+        "abbr": "Th. ngữ.",
+        "meaning": "Thành ngữ"
+    },
+    {
+        "abbr": "Tâm.",
+        "meaning": "Tâm lý học"
+    },
+    {
+        "abbr": "Toán.",
+        "meaning": "Toán học"
+    },
+    {
+        "abbr": "Tục.",
+        "meaning": "Thông tục"
+    },
+    {
+        "abbr": "Thiên.",
+        "meaning": "Thiên văn"
+    },
+    {
+        "abbr": "Thực.",
+        "meaning": "Thực vật học"
+    },
+    {
+        "abbr": "Triết.",
+        "meaning": "Triết học"
+    },
+    {
+        "abbr": "Vt.",
+        "meaning": "Vấn từ"
+    },
+    {
+        "abbr": "Xt.",
+        "meaning": "Xem tiếng"
+    },
+    {
+        "abbr": "Y.",
+        "meaning": "Y học"
+    }
 ]
