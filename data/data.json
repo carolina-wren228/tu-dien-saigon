@@ -12,8 +12,8 @@
   {
     "word": "A",
     "search_term": "a",
-    "part_of_speech": "Động từ (đt.) [p. foncer sur]",
-    "definition": "Xông, sấn vào.",
+    "part_of_speech": "Động từ (đt.)",
+    "definition": "Xông, sấn vào. [p. foncer sur]",
     "examples": [
       { "phrase": "Bọn chúng a vào cướp giật", "meaning": "" }
     ]
@@ -21,8 +21,8 @@
   {
     "word": "A",
     "search_term": "a",
-    "part_of_speech": "Động từ (đt.) [p. réunir en tas, amasser]",
-    "definition": "Vơ, gom thành đống.",
+    "part_of_speech": "Động từ (đt.)",
+    "definition": "Vơ, gom thành đống.  [p. réunir en tas, amasser]",
     "examples": [
       { "phrase": "A rơm, a cỏ vào sân", "meaning": "" }
     ]
@@ -30,8 +30,8 @@
   {
     "word": "A",
     "search_term": "a",
-    "part_of_speech": "Danh từ (dt.) [p. fourche]",
-    "definition": "Nông cụ dùng cắt rơm, rạ.",
+    "part_of_speech": "Danh từ (dt.)",
+    "definition": "Nông cụ dùng cắt rơm, rạ.  [p. fourche]",
     "examples": [
       { "phrase": "Cắt rạ dùng a, quét nhà dùng chổi (T. ngữ)", "meaning": "" }
     ]
@@ -40,11 +40,11 @@
     "word": "A",
     "search_term": "a",
     "part_of_speech": "Thán từ (tht.)",
-    "definition": "Tỏ ý vui thích, tỏ ý ngạc nhiên",
+    "definition": "Tỏ ý vui thích. Tỏ ý ngạc nhiên.",
     "examples": [
       { "phrase": "1. Đẹp quá a !", "meaning": "Tỏ ý vui thích." },
       { "phrase": "2. A, a, a, thiên địa đắm hoang mang (H. m. Từ).", "meaning": "Tỏ ý ngạc nhiên." },
-      { "phrase": "3. Da mỗi tóc bạc ta già nhỉ, Áo biếc đai vàng bác đây a ! (Yên Đỗ).", "meaning": "Tỏ ý ngạc nhiên." }
+      { "phrase": "3. Da mồi tóc bạc ta già nhĩ, Áo biếc đai vàng bác đấy a ! (Yên Đỗ).", "meaning": "Tỏ ý ngạc nhiên." }
     ]
   }
 ]

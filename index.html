@@ -1,119 +1,84 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Việt-Nam Tân Tự-Điển Online</title>
-    <style>
-        body { font-family: Arial, sans-serif; max-width: 600px; margin: 40px auto; padding: 20px; line-height: 1.6; background-color: #fcfbf7; color: #222; }
-        .header-container { text-align: center; border-bottom: 2px dashed #d1c7bd; padding-bottom: 20px; margin-bottom: 25px; }
-        .main-title { font-size: 32px; margin: 0 0 5px 0; color: #5c1d1d; font-family: "Times New Roman", Georgia, serif; font-weight: bold; }
-        .subtitle { font-size: 18px; margin: 0 0 15px 0; color: #444; font-style: italic; }
-        .meta-badge { font-size: 13px; color: #665c54; background-color: #f2ede4; padding: 6px 12px; border-radius: 4px; display: inline-block; border: 1px solid #e3dac9; }
-        .search-box { width: 100%; padding: 12px; font-size: 18px; border: 2px solid #c9bda7; border-radius: 6px; box-sizing: border-box; background-color: #fff; margin-bottom: 20px; }
-        
-        /* Container for stacked result cards */
-        .results-container { display: flex; flex-direction: column; gap: 20px; }
-        
-        .result-card { padding: 20px; background: white; border-radius: 6px; box-shadow: 0 2px 8px rgba(184,170,147,0.2); border: 1px solid #e8e2d5; }
-        .word-title { font-size: 28px; margin: 0; color: #1a1a1a; font-weight: bold; display: inline-block; }
-        .pos { display: inline-block; background: #fef3c7; color: #92400e; padding: 2px 8px; border-radius: 4px; font-size: 14px; font-weight: bold; margin-left: 12px; border: 1px solid #fde68a; vertical-align: middle; }
-        .definition { font-size: 16px; color: #333; margin: 15px 0; border-top: 1px dotted #e8e2d5; padding-top: 10px; }
-        .example-container { background: #fdfdfb; padding: 10px; border-radius: 4px; border-left: 3px solid #b45309; }
-        .example-item { margin-bottom: 6px; font-style: italic; color: #555; font-size: 15px; }
-        .example-item:last-child { margin-bottom: 0; }
-        
-        .no-result { margin-top: 20px; color: #777; display: none; text-align: center; }
-        .loading { color: #7c2d12; font-style: italic; margin-bottom: 10px; text-align: center; font-weight: bold; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Việt-Nam Tân Tự-Điển Online</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,500;0,700;1,500&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
-    <div class="header-container">
-        <h1 class="main-title">VIỆT-NAM TÂN TỰ-ĐIỂN</h1>
-        <p class="subtitle">Tác giả: Thanh Nghị</p>
-        <div class="meta-badge">
-            🏠 <strong>Nhà xuất bản:</strong> Khải-Trí &nbsp;|&nbsp; 📅 <strong>Ngày ấn hành:</strong> 27/12/1967
-        </div>
+<div class="page">
+
+  <div class="header">
+    <p class="eyebrow">Thư viện tra cứu · Est. 1967</p>
+    <h1 class="main-title">VIỆT-NAM TÂN TỰ-ĐIỂN</h1>
+    <p class="subtitle">Tác giả: Thanh Nghị</p>
+    <div class="meta-badge">
+      <span>🏠 Khải-Trí</span>
+      <span>📅 27&nbsp;·&nbsp;12&nbsp;·&nbsp;1967</span>
     </div>
+    <div class="header-links">
+      <button type="button" class="abbr-trigger" onclick="openAbbrPanel()">📖 Bảng chữ viết tắt</button>
+      <button type="button" class="abbr-trigger" onclick="openTuaPanel()">📜 Tựa</button>
+    </div>
+  </div>
 
-    <div id="status" class="loading">Đang mở kho sách dữ liệu...</div>
-    <input type="text" id="searchInput" class="search-box" placeholder="Đang chuẩn bị..." oninput="searchDictionary()" disabled>
+  <div class="search-wrap">
+    <span class="search-icon">🔍</span>
+    <input type="text" id="searchInput" class="search-box" placeholder="Đang mở kho dữ liệu…" oninput="searchDictionary()" disabled aria-label="Tra cứu từ ngữ">
+  </div>
 
-    <!-- Dynamic container where multiple cards will be generated -->
-    <div id="resultsContainer" class="results-container"></div>
+  <p class="status-line" id="status">Đang mở kho sách dữ liệu…</p>
 
-    <div id="noResult" class="no-result">Không tìm thấy từ này trong dữ liệu tự-điển hiện tại.</div>
+  <div id="resultsContainer" class="results-container"></div>
 
-    <script>
-        let dictionaryData = [];
+  <div id="placeholder" class="placeholder">
+    <div class="placeholder-glyph">字</div>
+    <p>Nhập một từ để bắt đầu tra cứu.</p>
+  </div>
 
-        async function loadDictionaryData() {
-            try {
-                const response = await fetch('data.json');
-                if (!response.ok) throw new Error('Không thể đọc file data.json');
-                dictionaryData = await response.json();
-                
-                document.getElementById('status').style.display = 'none';
-                document.getElementById('searchInput').disabled = false;
-                document.getElementById('searchInput').placeholder = "Tra cứu từ ngữ (ví dụ: a)...";
-            } catch (error) {
-                document.getElementById('status').innerText = "Lỗi: Không thể kết nối thư viện từ điển.";
-                console.error(error);
-            }
-        }
+  <div id="noResult" class="no-result">
+    <div class="no-result-glyph">?</div>
+    <p>Không tìm thấy từ này trong dữ liệu tự-điển hiện tại.</p>
+  </div>
 
-        loadDictionaryData();
+  <footer>VIỆT-NAM TÂN TỰ-ĐIỂN &nbsp;·&nbsp; Bản điện tử</footer>
 
-        function searchDictionary() {
-            const query = document.getElementById('searchInput').value.trim().toLowerCase();
-            const container = document.getElementById('resultsContainer');
-            const noResult = document.getElementById('noResult');
-            
-            // Clear old results
-            container.innerHTML = "";
-            
-            if (query === "") {
-                noResult.style.display = "none";
-                return;
-            }
+</div>
 
-            // FILTER instead of FIND grabs ALL matching items
-            const matches = dictionaryData.filter(item => item.search_term === query || item.word.toLowerCase() === query);
+<div id="abbrOverlay" class="abbr-overlay" onclick="if(event.target===this) closeAbbrPanel()">
+  <div class="abbr-panel" role="dialog" aria-modal="true" aria-labelledby="abbrTitle">
+    <div class="abbr-panel-head">
+      <h2 id="abbrTitle">Bảng chữ viết tắt</h2>
+      <button type="button" class="abbr-close" onclick="closeAbbrPanel()" aria-label="Đóng">✕</button>
+    </div>
+    <div id="abbrList" class="abbr-list">
+      <p class="abbr-loading">Đang tải…</p>
+    </div>
+  </div>
+</div>
 
-            if (matches.length > 0) {
-                noResult.style.display = "none";
-                
-                // Dynamically build a card for every single match
-                matches.forEach(entry => {
-                    const card = document.createElement('div');
-                    card.className = 'result-card';
-                    
-                    // Create Example list HTML if they exist
-                    let examplesHTML = "";
-                    if (entry.examples && entry.examples.length > 0) {
-                        let items = entry.examples.map(ex => {
-                            return `<div class="example-item"><strong>${ex.phrase}</strong>${ex.meaning ? ' : ' + ex.meaning : ''}</div>`;
-                        }).join('');
-                        examplesHTML = `<div class="example-container"><strong>Ví dụ:</strong>${items}</div>`;
-                    }
+<div id="tuaOverlay" class="abbr-overlay" onclick="if(event.target===this) closeTuaPanel()">
+  <div class="abbr-panel tua-panel" role="dialog" aria-modal="true" aria-labelledby="tuaTitle">
+    <div class="abbr-panel-head">
+      <h2 id="tuaTitle">Tựa</h2>
+      <button type="button" class="abbr-close" onclick="closeTuaPanel()" aria-label="Đóng">✕</button>
+    </div>
+    <div class="tua-body">
+      <p>Quyển Việt-Nam Tân Từ-Điển minh-họa được soạn theo một quan niệm mới, chú trọng về phần danh từ mới thuộc các ngành học, như chính trị, kinh tế, khoa học, triết học đã được sự ân cần của lớp người trong thế hệ mới và cần thiết cho cuộc sinh hoạt quốc tế ngày nay.</p>
+      <p>Những danh từ mới này đã được định theo nghĩa chính xác và khách quan nhất của nó tuy không có phần thông luận có tính cách bách khoa như trong quyển Tự-Điển Việt-Nam xuất bản trước đây.</p>
+      <p>Mỗi danh từ đều được chú tiếng Pháp hoặc tiếng Anh để cho dễ nhận định và có thêm một ý niệm so sánh minh bạch hơn.</p>
+      <p>Ngoài ra, gần hai ngàn danh từ Phật học thông dụng được trình bày rõ ràng và phân biệt và được chú thêm tiếng Phạn khi cần thiết.</p>
+      <p>Việc biên soạn từ điển, nhất là về ngôn ngữ Việt Nam khi chưa có tiếng nói của thẩm quyền chỉ là một cố gắng kiên nhẫn tha thiết của soạn giả. Những điểm thiếu sót tự nhiên không thể tránh sẽ mong mỏi được bổ khuyết trong một kỳ tái bản sau.</p>
+      <p class="tua-signature">THANH-NGHỊ</p>
+    </div>
+  </div>
+</div>
 
-                    // Assemble the card layout
-                    card.innerHTML = `
-                        <div>
-                            <h1 class="word-title">${entry.word}</h1>
-                            <span class="pos">${entry.part_of_speech}</span>
-                        </div>
-                        <div class="definition">${entry.definition}</div>
-                        ${examplesHTML}
-                    `;
-                    
-                    container.appendChild(card);
-                });
-            } else {
-                noResult.style.display = "block";
-            }
-        }
-    </script>
+<script src="js/script.js"></script>
 </body>
 </html>
