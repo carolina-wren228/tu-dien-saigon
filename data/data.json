@@ -46,5 +46,43 @@
       { "phrase": "2. A, a, a, thiên địa đắm hoang mang (H. m. Từ).", "meaning": "Tỏ ý ngạc nhiên." },
       { "phrase": "3. Da mồi tóc bạc ta già nhĩ, Áo biếc đai vàng bác đấy a ! (Yên Đỗ).", "meaning": "Tỏ ý ngạc nhiên." }
     ]
+  },
+  {
+    "word": "A",
+    "search_term": "a",
+    "part_of_speech": "Hán tự (ht.)",
+    "definition": "Vật hình cái chỉa hai.",
+    "examples": [
+      { "phrase": "A hoàn", "meaning": "" }
+    ]
+  },
+  {
+    "word": "A",
+    "search_term": "a",
+    "part_of_speech": "Hán tự (ht.)",
+    "definition": "Đái.",
+    "examples": [
+      { "phrase": "A huyết", "meaning": "" }
+    ]
+  },
+  {
+  "word": "A",
+  "search_term": "a",
+  "part_of_speech": "Hán tự (ht.)",
+  "definitions": [
+      { "index": 1, "text": "Dựa, dua nịnh", "examples": [{ "phrase": "A đẳng, a tùng" }] },
+      { "index": 2, "text": "Tiếng dùng để tôn xưng", "examples": [{ "phrase": "A bảo" }] },
+      { "index": 3, "text": "Dùng như tiếp đầu ngữ", "examples": [{ "phrase": "A giao, a ngùy" }] },
+      { "index": 4, "text": "Dùng để phiên âm", "examples": [{ "phrase": "A-di-đà, A-la-hán" }] }
+    ]
+  },
+  {
+  "word": "A",
+  "search_term": "a",
+  "part_of_speech": "Hán tự (ht.)",
+  "definitions": [
+      { "index": 1, "text": "Con quạ." },
+      { "index": 2, "text": "Thuốc phiện." }
+    ]
   }
 ]

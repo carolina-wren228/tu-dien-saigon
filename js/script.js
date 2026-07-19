@@ -48,19 +48,45 @@ function buildExamplesHTML(examples){
 // Group flat entries that share the same word + part_of_speech
 // into a single card with numbered senses.
 function groupEntries(entries){
-  const groups = [];
-  const index = new Map();
-  entries.forEach(entry => {
-    const key = entry.word + '|' + entry.part_of_speech;
-    if(!index.has(key)){
-      const group = { word: entry.word, part_of_speech: entry.part_of_speech, senses: [] };
-      index.set(key, group);
-      groups.push(group);
-    }
-    index.get(key).senses.push({ definition: entry.definition, examples: entry.examples });
-  });
-  return groups;
+    const groups = [];
+    const index = new Map();
+    
+    entries.forEach(entry => {
+        const key = entry.word + '|' + entry.part_of_speech;
+        
+        if(!index.has(key)){
+            const group = {
+                word: entry.word,
+                part_of_speech: entry.part_of_speech,
+                senses: []
+            };
+            index.set(key, group);
+            groups.push(group);
+        }
+        
+        const activeGroup = index.get(key);
+        
+        // OPTION B TWEAK: Check if this entry contains a list of definitions
+        if (entry.definitions && Array.isArray(entry.definitions)) {
+            entry.definitions.forEach(subDef => {
+                activeGroup.senses.push({
+                    // Use the text from the sub-definition array
+                    definition: subDef.text, 
+                    examples: subDef.examples || []
+                });
+            });
+        } else {
+            // Fallback for standard flat entries (Option A style entries)
+            activeGroup.senses.push({
+                definition: entry.definition,
+                examples: entry.examples || []
+            });
+        }
+    });
+    
+    return groups;
 }
+
 
 function renderCard(group, query){
   const card = document.createElement('div');
