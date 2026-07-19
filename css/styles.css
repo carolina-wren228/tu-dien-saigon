@@ -88,6 +88,15 @@ body{
   margin-top: 14px;
   flex-wrap: wrap;
 }
+
+.abbr-trigger, .abbr-close {
+    min-width: 44px;     /* Meets standard mobile touchscreen guidelines */
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .abbr-trigger{
   font-family: 'Space Mono', monospace;
   font-size: 12px;
@@ -240,6 +249,13 @@ body{
 /* ---------- Results ---------- */
 .results-container{ display:flex; flex-direction:column; gap: 22px; }
 
+.definitions-list {
+    margin-top: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
 .card{
   position: relative;
   background: var(--paper-card);
@@ -295,35 +311,49 @@ body{
   display:inline-block;
 }
 
-.sense{ padding-left: 22px; }
-.sense + .sense{ margin-top: 16px; }
-.sense-def{
-  font-family: 'Noto Serif', serif;
-  font-weight: 500;
-  font-size: 16.5px;
-  line-height: 1.65;
-  color: var(--ink);
-}
-.sense-number{
-  font-family:'Space Mono', monospace;
-  color: var(--indigo);
-  font-weight: 700;
-  margin-right: 6px;
+.sense {
+    padding-left: 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
 }
 
-.examples{
-  margin-top: 8px;
-  padding: 10px 14px;
-  background: var(--indigo-soft);
-  border-left: 3px solid var(--indigo);
-  border-radius: 0 3px 3px 0;
+.sense-def {
+    font-family: 'Noto Serif', serif;
+    font-weight: 500;
+    font-size: 16.5px;
+    line-height: 1.65;
+    color: var(--ink);
+    display: flex;       /* Ensures text aligns alongside the number block */
+    align-items: first baseline;
+    gap: 6px;
 }
-.example-item{
-  font-size: 14.5px;
-  font-style: italic;
-  color: var(--ink-soft);
-  line-height: 1.5;
+
+.sense-number {
+    font-family: 'Space Mono', monospace;
+    color: var(--indigo);
+    font-weight: 700;
+    flex-shrink: 0;      /* Prevents number layout distortion */
 }
+
+.examples {
+    margin-top: 8px;
+    padding: 10px 14px;
+    background: var(--indigo-soft);
+    border-left: 3px solid var(--indigo);
+    border-radius: 0 3px 3px 0;
+    display: flex;       /* Stacks compound examples vertically */
+    flex-direction: column;
+    gap: 8px;            /* Even vertical spacing between quote rows */
+}
+
+.example-item {
+    font-size: 14.5px;
+    font-style: italic;
+    color: var(--ink-soft);
+    line-height: 1.6;    /* Generous text spacing for old typography */
+}
+
 .example-item + .example-item{ margin-top: 5px; }
 .example-item strong{ font-style: normal; font-weight: 600; color: var(--ink); }
 
@@ -357,4 +387,49 @@ footer{
 @keyframes rise{
   from{ opacity:0; transform: translateY(4px); }
   to{ opacity:1; transform: translateY(0); }
+}
+
+/* Position the search wrapper relatively so the button can pin to it */
+.search-wrap {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+/* Adjust your existing search box padding on the right side so text doesn't slide under the X button */
+.search-box {
+    width: 100%;
+    padding: 15px 44px 15px 46px; /* Changed 16px right padding to 44px */
+    font-family: 'Noto Serif', serif;
+    font-size: 19px;
+    border: none;
+    border-bottom: 2px solid var(--ink);
+    background: transparent;
+    color: var(--ink);
+}
+
+/* Clear button styling */
+.clear-btn {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    font-size: 16px;
+    color: var(--ink-soft);
+    cursor: pointer;
+    padding: 8px;
+    display: none; /* Invisible by default */
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    line-height: 1;
+}
+
+.clear-btn:hover {
+    color: var(--seal);
+}
+
+.clear-btn:focus-visible {
+    outline: 2px solid var(--indigo);
 }

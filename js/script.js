@@ -89,29 +89,39 @@ function groupEntries(entries){
 
 
 function renderCard(group, query){
-  const card = document.createElement('div');
-  card.className = 'card';
-
-  const senseHTML = group.senses.map((sense, i) => {
-    const number = group.senses.length > 1
-      ? `<span class="sense-number">${i + 1}.</span>`
-      : '';
-    return `
-      <div class="sense">
-        <div class="sense-def">${number}${escapeHtml(sense.definition)}</div>
-        ${buildExamplesHTML(sense.examples)}
-      </div>`;
-  }).join('');
-
-  card.innerHTML = `
-    <div class="card-head">
-      <h2 class="word-title">${highlightWord(group.word, query)}</h2>
-      <span class="pos-stamp">${escapeHtml(group.part_of_speech)}</span>
-    </div>
-    ${senseHTML}
-  `;
-  return card;
+    const card = document.createElement('div');
+    card.className = 'card';
+    
+    const senseHTML = group.senses.map((sense, i) => {
+        const defText = sense.definition || '';
+        
+        // RegEx check: Does the text already start with a number like "1." or "2."?
+        const hasNumberAlready = /^\d+[\s\.]/.test(defText.trim());
+        
+        // Only generate a sense number if the card has multiple senses AND the text doesn't have one
+        const number = (group.senses.length > 1 && !hasNumberAlready) 
+            ? `<span class="sense-number">${i + 1}.</span>` 
+            : '';
+            
+        return `
+            <div class="sense">
+                <div class="sense-def">${number}${escapeHtml(defText)}</div>
+                ${buildExamplesHTML(sense.examples)}
+            </div>
+        `;
+    }).join('');
+    
+    card.innerHTML = `
+        <div class="card-head">
+            <h2 class="word-title">${highlightWord(group.word, query)}</h2>
+            <span class="pos-stamp">${escapeHtml(group.part_of_speech)}</span>
+        </div>
+        ${senseHTML}
+    `;
+    
+    return card;
 }
+
 
 let abbreviationsData = null;
 
@@ -203,3 +213,57 @@ function searchDictionary(){
   const groups = groupEntries(matches);
   groups.forEach(group => container.appendChild(renderCard(group, query)));
 }
+
+// 1. ADD THIS NEW FUNCTION ANYWHERE IN YOUR SCRIPT
+function clearSearch() {
+    const input = document.getElementById('searchInput');
+    const clearBtn = document.getElementById('clearButton');
+    
+    input.value = '';             // Empty the text input
+    clearBtn.style.display = 'none'; // Hide the clear button again
+    input.focus();                // Put typing focus back into input box
+    
+    searchDictionary();           // Trigger search code to reset the container UI
+}
+
+// 2. UPDATE YOUR EXISTING SEARCH FUNCTION TO REVEAL/HIDE THE BUTTON
+function searchDictionary(){
+    const inputEl = document.getElementById('searchInput');
+    const clearBtn = document.getElementById('clearButton');
+    const query = inputEl.value.trim().toLowerCase();
+    const container = document.getElementById('resultsContainer');
+    const noResult = document.getElementById('noResult');
+    const placeholder = document.getElementById('placeholder');
+    
+    // Toggle the clear button visibility based on raw input value
+    if (inputEl.value.length > 0) {
+        clearBtn.style.display = 'inline-flex';
+    } else {
+        clearBtn.style.display = 'none';
+    }
+
+    container.innerHTML = '';
+    
+    if(query === ''){
+        noResult.style.display = 'none';
+        placeholder.style.display = 'block';
+        return;
+    }
+    
+    placeholder.style.display = 'none';
+    
+    const matches = dictionaryData.filter(item => 
+        item.search_term === query || item.word.toLowerCase() === query
+    );
+    
+    if(matches.length === 0){
+        noResult.style.display = 'block';
+        return;
+    }
+    
+    noResult.style.display = 'none';
+    
+    const groups = groupEntries(matches);
+    groups.forEach(group => container.appendChild(renderCard(group, query)));
+}
+
