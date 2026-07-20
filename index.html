@@ -11,9 +11,19 @@
 </head>
 <body>
 
-<div class="page">
 
-  <div class="header">
+<div class="app-viewport">
+  <!-- THE ALPHABET SIDEBAR INDEX -->
+    <nav class="alphabet-sidebar" aria-label="Danh mục chữ cái">
+        <div id="alphabetContainer" class="alphabet-list">
+            <!-- JavaScript will populate letters dynamically here -->
+        </div>
+    </nav>
+
+    <!-- main page-->
+     <div class="page">
+
+      <div class="header">
     <p class="eyebrow">Thư viện tra cứu · Est. 1967</p>
     <h1 class="main-title">VIỆT-NAM TÂN TỰ-ĐIỂN</h1>
     <p class="subtitle">Tác giả: Thanh Nghị</p>
@@ -25,7 +35,7 @@
       <button type="button" class="abbr-trigger" onclick="openAbbrPanel()">📖 Bảng chữ viết tắt</button>
       <button type="button" class="abbr-trigger" onclick="openTuaPanel()">📜 Tựa</button>
     </div>
-  </div>
+      </div>
 
   <div class="search-wrap">
     <span class="search-icon">🔍</span>
@@ -50,6 +60,9 @@
   <footer>VIỆT-NAM TÂN TỰ-ĐIỂN &nbsp;·&nbsp; Bản điện tử</footer>
 
 </div>
+
+</div>
+
 
 <div id="abbrOverlay" class="abbr-overlay" onclick="if(event.target===this) closeAbbrPanel()">
   <div class="abbr-panel" role="dialog" aria-modal="true" aria-labelledby="abbrTitle">

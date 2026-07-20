@@ -1,7 +1,7 @@
 [
   {
     "word": "A",
-    "search_term": "a",
+    "search_terms": ["a"],
     "part_of_speech": "Danh từ (dt.)",
     "definition": "Chữ thứ nhất trong tự mẫu Việt ngữ.",
     "examples": [
@@ -11,7 +11,7 @@
   },
   {
     "word": "A",
-    "search_term": "a",
+    "search_terms": ["a"],
     "part_of_speech": "Động từ (đt.)",
     "definition": "Xông, sấn vào. [p. foncer sur]",
     "examples": [
@@ -20,7 +20,7 @@
   },
   {
     "word": "A",
-    "search_term": "a",
+    "search_terms": ["a"],
     "part_of_speech": "Động từ (đt.)",
     "definition": "Vơ, gom thành đống.  [p. réunir en tas, amasser]",
     "examples": [
@@ -29,7 +29,7 @@
   },
   {
     "word": "A",
-    "search_term": "a",
+    "search_terms": ["a"],
     "part_of_speech": "Danh từ (dt.)",
     "definition": "Nông cụ dùng cắt rơm, rạ.  [p. fourche]",
     "examples": [
@@ -38,18 +38,21 @@
   },
   {
     "word": "A",
-    "search_term": "a",
+    "search_terms": ["a"],
     "part_of_speech": "Thán từ (tht.)",
-    "definition": "Tỏ ý vui thích. Tỏ ý ngạc nhiên.",
-    "examples": [
-      { "phrase": "1. Đẹp quá a !", "meaning": "Tỏ ý vui thích." },
-      { "phrase": "2. A, a, a, thiên địa đắm hoang mang (H. m. Từ).", "meaning": "Tỏ ý ngạc nhiên." },
-      { "phrase": "3. Da mồi tóc bạc ta già nhĩ, Áo biếc đai vàng bác đấy a ! (Yên Đỗ).", "meaning": "Tỏ ý ngạc nhiên." }
+    "definitions": [
+      { "index": 1, "text": "Tỏ ý vui thích", "examples": [{ "phrase": "Đẹp quá a !" }] },
+      { "index": 2, "text": "Tỏ ý ngạc nhiên", 
+      "examples": [
+      	{ "phrase": "A, a, a, thiên địa đắm hoang mang (H. m. Tử)." }, 
+      	{ "phrase": "Da mồi tóc bạc ta già nhĩ, Áo biếc đai vàng bác đấy a ! (Yên Đỗ)." }
+      	] 
+      }
     ]
   },
   {
     "word": "A",
-    "search_term": "a",
+    "search_terms": ["a"],
     "part_of_speech": "Hán tự (ht.)",
     "definition": "Vật hình cái chỉa hai.",
     "examples": [
@@ -58,7 +61,7 @@
   },
   {
     "word": "A",
-    "search_term": "a",
+    "search_terms": ["a"],
     "part_of_speech": "Hán tự (ht.)",
     "definition": "Đái.",
     "examples": [
@@ -67,7 +70,7 @@
   },
   {
   "word": "A",
-  "search_term": "a",
+  "search_terms": ["a"],
   "part_of_speech": "Hán tự (ht.)",
   "definitions": [
       { "index": 1, "text": "Dựa, dua nịnh", "examples": [{ "phrase": "A đẳng, a tùng" }] },
@@ -78,11 +81,47 @@
   },
   {
   "word": "A",
-  "search_term": "a",
+  "search_terms": ["a"],
   "part_of_speech": "Hán tự (ht.)",
   "definitions": [
       { "index": 1, "text": "Con quạ." },
       { "index": 2, "text": "Thuốc phiện." }
     ]
+  },
+  {
+    "word": "A BẢO",
+    "search_terms": ["a bao", "a bảo"],
+    "part_of_speech": "Danh từ (dt.)",
+    "definition": "(p. précepteur du dauphin) Tiếng tôn xưng thầy dạy của hoàng tử."
+  },
+  {
+    "word": "A-CÊ-TY-LEN",
+    "search_terms": ["a cê ty len", "a ce ty len"],
+    "part_of_speech": "Danh từ (dt.)",
+    "definition": "(p. acétylène.) Hóa. Chất khí đá đốt cháy rất sáng,đặc tính là chống được gió."
+  },
+  {
+    "word": "A-CIT",
+    "search_terms": ["a cit","a-cit"],
+    "part_of_speech": "Danh từ (dt.)",
+    "definition": "(p. acide) Hóa. Chất hóa hợp hyt-rô làm cho thuốc rượu quỳ màu xanh hóa đỏ."
+  },
+  {
+    "word": "A-CIT KẾ",
+    "search_terms": ["a cit kế", "a-cit ke", "a cit ke"],
+    "part_of_speech": "Danh từ (dt.)",
+    "definition": "(p. acidimètre) Khí cụ đo nồng độ của a-cit."
+  },
+  {
+    "word": "A-DI-ĐÀ-PHẬT",
+    "search_terms": ["a di đà phật", "a di da phat", "a-di da phat"],
+    "part_of_speech": "(Phạn. Amitaba)",
+    "definition": "Tên một đức Phật; cũng gọi là vô lượng quang Phật (a : vô ; di-đà : lượng)."
+  },
+  {
+    "word": "A-DONG GIÁO PHÁI",
+    "search_terms": ["a dong giáo phái", "a dong giao phai"],
+    "part_of_speech": "Danh từ (dt.)",
+    "definition": "(p. adamisme) Giáo phái của những người chủ trương tà thuyết là ở trần truồng trong các buổi hội để cố bắt chước trạng thái vô tội của ông A-dong buổi đầu khi mới có loài người."
   }
 ]
