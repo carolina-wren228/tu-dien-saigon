@@ -181,11 +181,11 @@ function searchDictionary(){
     const placeholder = document.getElementById('placeholder'); 
     
     // Toggle the clear button visibility via CSS classes safely
-    if (inputEl.value.length > 0) { 
-        clearBtn.classList.add('visible'); 
-    } else { 
-        clearBtn.classList.remove('visible'); 
-    } 
+    if (inputEl.value.length > 0) {
+        clearBtn.style.display = 'inline-flex';
+    } else {
+        clearBtn.style.display = 'none';
+    }
     
     container.innerHTML = ''; 
     
